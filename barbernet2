@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windy City Cuts | Chicago Barbershop</title>
+    <meta name="description" content="Premium barbershop in Chicago offering classic cuts, beard trims, and grooming services. Experience traditional barbering with modern style.">
+    <meta name="keywords" content="Chicago barbershop, haircut, beard trim, grooming, barber, men's haircut, Chicago">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barber-red': '#8B0000',
+                        'barber-gold': '#D4AF37',
+                        'barber-brown': '#5D4037',
+                        'barber-cream': '#FFF8E1'
+                    },
+                    fontFamily: {
+                        'display': ['"Playfair Display"', 'serif'],
+                        'body': ['"Open Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-barber-cream font-body text-gray-800">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-barber-red rounded-full flex items-center justify-center">
+                        <i class="fas fa-cut text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-display font-bold text-barber-brown">Windy City <span class="text-barber-red">Cuts</span></h1>
+                </div>
+                
+                <nav class="hidden md:block">
+                    <ul id="nav-menu" class="flex space-x-8"></ul>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+13125551234" class="hidden md:inline text-barber-brown hover:text-barber-red transition">
+                        <i class="fas fa-phone-alt mr-1"></i> (312) 555-1234
+                    </a>
+                    <button id="book-now-btn" class="bg-barber-red text-white px-6 py-2 rounded-full font-semibold hover:bg-red-800 transition transform hover:scale-105">
+                        Book Now
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden text-barber-brown text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t hidden">
+            <ul id="mobile-nav" class="py-4 px-4 space-y-4"></ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-barber-brown to-black text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/1920/1080?random=1" alt="Barbershop interior with vintage chairs" class="w-full h-full object-cover opacity-40">
+        </div>
+        <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
+            <div class="max-w-2xl">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Classic Cuts in the <span class="text-barber-gold">Heart of Chicago</span></h2>
+                <p class="text-xl mb-8 text-barber-cream">Experience traditional barbering with modern precision. Since 1995, we've been shaping Chicago's style one cut at a time.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button id="hero-book-btn" class="bg-barber-red text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-red-800 transition transform hover:scale-105">
+                        Book Your Cut
+                    </button>
+                    <a href="#services" class="border-2 border-barber-gold text-barber-gold px-8 py-3 rounded-full font-semibold text-lg hover:bg-barber-gold hover:text-black transition">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-barber-brown mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">From classic cuts to premium grooming, we offer services that combine traditional techniques with modern style.</p>
+            </div>
+            
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Barbers Section -->
+    <section class="py-16 bg-barber-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-barber-brown mb-4">Meet Our Barbers</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our skilled barbers bring years of experience and passion to every cut.</p>
+            </div>
+            
+            <div id="barbers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Location & Hours -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-barber-brown mb-6">Visit Us in Chicago</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-barber-red rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-barber-brown">Location</h3>
+                                <p class="text-gray-600">123 Wacker Drive<br>Chicago, IL 60606</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-barber-red rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-barber-brown">Hours</h3>
+                                <div id="hours-list"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-barber-red rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-barber-brown">Contact</h3>
+                                <p class="text-gray-600">(312) 555-1234<br>hello@windycitycuts.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://picsum.photos/800/500?random=8" alt="Barbershop storefront in Chicago" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-barber-brown mb-4">Parking & Transit</h3>
+                        <p class="text-gray-600 mb-4">Located in the Loop with easy access to public transportation. Street parking and nearby garages available.</p>
+                        <div class="flex space-x-4">
+                            <div class="flex items-center space-x-2 text-gray-600">
+                                <i class="fas fa-subway"></i>
+                                <span>L Train: 2 min walk</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-gray-600">
+                                <i class="fas fa-parking"></i>
+                                <span>Parking nearby</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-barber-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-barber-brown mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Join thousands of satisfied Chicagoans who trust us with their style.</p>
+            </div>
+            
+            <div id="testimonials-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-barber-brown text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-barber-red rounded-full flex items-center justify-center">
+                            <i class="fas fa-cut text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold">Windy City <span class="text-barber-gold">Cuts</span></h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">Premium barbershop in Chicago offering classic cuts, beard trims, and grooming services since 1995.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-barber-red transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-barber-red transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-barber-red transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-barber-gold">Quick Links</h4>
+                    <ul id="footer-links" class="space-y-3"></ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-barber-gold">Services</h4>
+                    <ul id="footer-services" class="space-y-3"></ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-barber-gold">Newsletter</h4>
+                    <p class="text-gray-300 mb-4">Subscribe for updates on special offers and grooming tips.</p>
+                    <form id="newsletter-form" class="space-y-3">
+                        <input type="email" placeholder="Your email" class="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-barber-gold">
+                        <button type="submit" class="w-full bg-barber-red text-white py-3 rounded-lg font-semibold hover:bg-red-800 transition">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Windy City Cuts. All rights reserved. | 123 Wacker Drive, Chicago, IL 60606</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-display font-bold text-barber-brown">Book Appointment</h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <form id="booking-form" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Select Service</label>
+                        <select id="service-select" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-barber-red"></select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Select Barber</label>
+                        <select id="barber-select" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-barber-red"></select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Date & Time</label>
+                        <input type="datetime-local" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-barber-red">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Your Name</label>
+                        <input type="text" placeholder="John Smith" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-barber-red">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" placeholder="(312) 555-1234" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-barber-red">
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-barber-red text-white py-3 rounded-lg font-semibold hover:bg-red-800 transition mt-6">
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Layer
+        const navigationData = [
+            { "label": "Home", "href": "#home", "icon": "fas fa-home" },
+            { "label": "Services", "href": "#services", "icon": "fas fa-cut" },
+            { "label": "Barbers", "href": "#barbers", "icon": "fas fa-user" },
+            { "label": "Location", "href": "#location", "icon": "fas fa-map-marker-alt" },
+            { "label": "Testimonials", "href": "#testimonials", "icon": "fas fa-star" }
+        ];
+
+        const servicesData = [
+            { 
+                "id": "classic-cut",
+                "name": "Classic Haircut", 
+                "price": "$35", 
+                "duration": "30 min",
+                "description": "Traditional cut with clippers and scissors",
+                "icon": "fas fa-cut"
+            },
+            { 
+                "id": "beard-trim",
+                "name": "Beard Trim & Shape", 
+                "price": "$25", 
+                "duration": "20 min",
+                "description": "Precision beard shaping and trimming",
+                "icon": "fas fa-user-check"
+            },
+            { 
+                "id": "hot-towel",
+                "name": "Hot Towel Shave", 
+                "price": "$45", 
+                "duration": "45 min",
+                "description": "Traditional straight razor shave",
+                "icon": "fas fa-fire"
+            },
+            { 
+                "id": "deluxe",
+                "name": "Deluxe Package", 
+                "price": "$65", 
+                "duration": "60 min",
+                "description": "Haircut, beard trim, and hot towel",
+                "icon": "fas fa-crown"
+            }
+        ];
+
+        const barbersData = [
+            { 
+                "id": "tony",
+                "name": "Tony Marino", 
+                "specialty": "Classic Cuts", 
+                "experience": "15 years",
+                "bio": "Specializes in traditional barbering techniques",
+                "image": "https://picsum.photos/400/400?random=2"
+            },
+            { 
+                "id": "mike",
+                "name": "Mike Rodriguez", 
+                "specialty": "Beard Grooming", 
+                "experience": "10 years",
+                "bio": "Beard shaping and grooming expert",
+                "image": "https://picsum.photos/400/400?random=3"
+            },
+            { 
+                "id": "james",
+                "name": "James Wilson", 
+                "specialty": "Modern Styles", 
+                "experience": "8 years",
+                "bio": "Contemporary cuts and fades",
+                "image": "https://picsum.photos/400/400?random=4"
+            }
+        ];
+
+        const hoursData = [
+            { "day": "Monday - Friday", "hours": "9:00 AM - 7:00 PM" },
+            { "day": "Saturday", "hours": "8:00 AM - 6:00 PM" },
+            { "day": "Sunday", "hours": "10:00 AM - 4:00 PM" }
+        ];
+
+        const testimonialsData = [
+            { 
+                "name": "Robert C.",
+                "location": "Loop, Chicago",
+                "text": "Best haircut I've had in Chicago. Tony is a true artist with the clippers.",
+                "rating": 5,
+                "image": "https://picsum.photos/100/100?random=5"
+            },
+            { 
+                "name": "Marcus L.",
+                "location": "Lincoln Park",
+                "text": "Consistently excellent service. My go-to spot for beard maintenance.",
+                "rating": 5,
+                "image": "https://picsum.photos/100/100?random=6"
+            },
+            { 
+                "name": "David K.",
+                "location": "Gold Coast",
+                "text": "Authentic barbershop experience with modern amenities. Highly recommend!",
+                "rating": 5,
+                "image": "https://picsum.photos/100/100?random=7"
+            }
+        ];
+
+        const footerLinksData = [
+            { "label": "Home", "href": "#home" },
+            { "label": "About Us", "href": "#about" },
+            { "label": "Services", "href": "#services" },
+            { "label": "Contact", "href": "#contact" },
+            { "label": "Privacy Policy", "href": "#privacy" },
+            { "label": "Terms of Service", "href": "#terms" }
+        ];
+
+        // Reusable Render Functions
+        function renderNavigation(items) {
+            return items.map(item => 
+                `<li><a href="${item.href}" class="text-barber-brown hover:text-barber-red font-semibold transition flex items-center space-x-2"><i class="${item.icon}"></i><span>${item.label}</span></a></li>`
+            ).join("");
+        }
+
+        function renderServices(items) {
+            return items.map(item => 
+                `<div class="bg-barber-cream rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-16 h-16 bg-barber-red rounded-full flex items-center justify-center mb-6">
+                        <i class="${item.icon} text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-barber-brown mb-2">${item.name}</h3>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold text-barber-red">${item.price}</span>
+                        <span class="text-gray-500">${item.duration}</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">${item.description}</p>
+                    <button data-service="${item.id}" class="book-service-btn w-full bg-barber-brown text-white py-3 rounded-lg font-semibold hover:bg-barber-red transition">
+                        Book Now
+                    </button>
+                </div>`
+            ).join("");
+        }
+
+        function renderBarbers(items) {
+            return items.map(item => 
+                `<div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-barber-brown mb-2">${item.name}</h3>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-barber-red text-white text-sm rounded-full">${item.specialty}</span>
+                            <span class="text-gray-500">${item.experience}</span>
+                        </div>
+                        <p class="text-gray-600 mb-6">${item.bio}</p>
+                        <button data-barber="${item.id}" class="book-barber-btn w-full border-2 border-barber-brown text-barber-brown py-3 rounded-lg font-semibold hover:bg-barber-brown hover:text-white transition">
+                            Book with ${item.name.split(' ')[0]}
+                        </button>
+                    </div>
+                </div>`
+            ).join("");
+        }
+
+        function renderHours(items) {
+            return items.map(item => 
+                `<div class="flex justify-between py-2 border-b border-gray-200 last:border-0">
+                    <span class="font-medium">${item.day}</span>
+                    <span class="text-gray-600">${item.hours}</span>
+                </div>`
+            ).join("");
+        }
+
+        function renderTestimonials(items) {
+            return items.map(item => 
+                `<div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-lg">${item.name}</h4>
+                            <p class="text-gray-500 text-sm">${item.location}</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        ${Array(item.rating).fill().map(() => '<i class="fas fa-star text-barber-gold"></i>').join('')}
+                    </div>
+                    <p class="text-gray-600 italic">"${item.text}"</p>
+                </div>`
+            ).join("");
+        }
+
+        function renderFooterLinks(items) {
+            return items.map(item => 
+                `<li><a href="${item.href}" class="text-gray-300 hover:text-barber-gold transition">${item.label}</a></li>`
+            ).join("");
+        }
+
+        function renderFooterServices(items) {
+            return items.map(item => 
+                `<li><a href="#services" class="text-gray-300 hover:text-barber-gold transition">${item.name}</a></li>`
+            ).join("");
+        }
+
+        function renderServiceOptions(items) {
+            return items.map(item => 
+                `<option value="${item.id}">${item.name} - ${item.price}</option>`
+            ).join("");
+        }
+
+        function renderBarberOptions(items) {
+            return items.map(item => 
+                `<option value="${item.id}">${item.name} - ${item.specialty}</option>`
+            ).join("");
+        }
+
+        // Initialize Page Content
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render all sections
+            document.getElementById('nav-menu').innerHTML = renderNavigation(navigationData);
+            document.getElementById('mobile-nav').innerHTML = renderNavigation(navigationData);
+            document.getElementById('services-grid').innerHTML = renderServices(servicesData);
+            document.getElementById('barbers-grid').innerHTML = renderBarbers(barbersData);
+            document.getElementById('hours-list').innerHTML = renderHours(hoursData);
+            document.getElementById('testimonials-grid').innerHTML = renderTestimonials(testimonialsData);
+            document.getElementById('footer-links').innerHTML = renderFooterLinks(footerLinksData);
+            document.getElementById('footer-services').innerHTML = renderFooterServices(servicesData);
+            document.getElementById('service-select').innerHTML = renderServiceOptions(servicesData);
+            document.getElementById('barber-select').innerHTML = renderBarberOptions(barbersData);
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.className = 'fas fa-bars';
+                } else {
+                    icon.className = 'fas fa-times';
+                }
+            });
+
+            // Booking Modal Functions
+            const bookingModal = document.getElementById('booking-modal');
+            const bookNowBtn = document.getElementById('book-now-btn');
+            const heroBookBtn = document.getElementById('hero-book-btn');
+            const closeModalBtn = document.getElementById('close-modal');
+            const bookingForm = document.getElementById('booking-form');
+
+            function openBookingModal(serviceId = '', barberId = '') {
+                bookingModal.classList.remove('hidden');
+                if (serviceId) {
+                    document.getElementById('service-select').value = serviceId;
+                }
+                if (barberId) {
+                    document.getElementById('barber-select').value = barberId;
+                }
+            }
+
+            function closeBookingModal() {
+                bookingModal.classList.add('hidden');
+            }
+
+            // Event Delegation for Service Booking Buttons
+            document.addEventListener('click', function(event) {
+                if (event.target.classList.contains('book-service-btn')) {
+                    const serviceId = event.target.getAttribute('data-service');
+                    openBookingModal(serviceId);
+                }
+                
+                if (event.target.classList.contains('book-barber-btn')) {
+                    const barberId = event.target.getAttribute('data-barber');
+                    openBookingModal('', barberId);
+                }
+            });
+
+            // Modal Event Listeners
+            bookNowBtn.addEventListener('click', () => openBookingModal());
+            heroBookBtn.addEventListener('click', () => openBookingModal());
+            closeModalBtn.addEventListener('click', closeBookingModal);
+            
+            bookingModal.addEventListener('click', function(event) {
+                if (event.target === bookingModal) {
+                    closeBookingModal();
+                }
+            });
+
+            // Booking Form Submission
+            bookingForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Thank you! Your appointment request has been submitted. We will call you to confirm.');
+                closeBookingModal();
+            });
+
+            // Newsletter Form Submission
+            document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                alert(`Thank you for subscribing with ${email}! You'll receive our next newsletter soon.`);
+                this.reset();
+            });
+
+            // Smooth Scrolling for Navigation Links
+            document.addEventListener('click', function(event) {
+                const link = event.target.closest('a[href^="#"]');
+                if (!link) return;
+                
+                const targetId = link.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    event.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                    }
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenu.classList.contains('hidden') && 
+                    !mobileMenu.contains(event.target) && 
+                    !mobileMenuBtn.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
